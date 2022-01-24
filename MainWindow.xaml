@@ -1,0 +1,60 @@
+﻿<Window x:Class="ToDoWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel  DockPanel.Dock="Left" Width="150">
+
+            <StackPanel Name="LoginSP">
+                <Label Content="User Name:"/>
+                <TextBox Name="usr"/>
+                <Label Content="Password:"/>
+                <TextBox Name="psw"/>
+                <Button Click="Login" Content="Login" Margin="10"/>
+                <Button Click="SingIn" Content="Sing In" Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Name="UserSP" Visibility="Collapsed">
+                <Label Name="adm" Content="Admin" Visibility="Collapsed"/>
+                <Label Name="usrId"/>
+                <Label Name="usrName"/>
+            </StackPanel>
+
+            <TextBox Name="errlbl" Text="ERRORS=" Height="20"/>
+
+        </StackPanel>
+
+        <Grid DockPanel.Dock="Top" Height="25">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Name="addTodo" Grid.Column="0" Margin="2"/>
+            <Button Name="addBtn" Grid.Column="1" Click="AddToDo" Content="Add"/>
+            <Button Name="delBtn" Grid.Column="2" Click="DeleteToDo" Content="Delete"/>
+            <Button Name="donBtn" Grid.Column="3" Click="Done" Content="Done"/>
+            <Button Name="uptBtn" Grid.Column="4" Click="Update" Content="Update"/>
+            <Button Name="shoBtn" Grid.Column="5" Click="ShowTodos" Content="Show" Visibility="Collapsed"/>
+            <Button Name="aaaBtn" Grid.Column="6" Click="AddandAppointment" Content="Add and Appointment" Visibility="Collapsed"/>
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Left">
+
+            <DataGrid Name="TodoDG" SelectionMode="Single" IsReadOnly="True" CanUserSortColumns = "False" Visibility="Collapsed" Height="200"/>
+            <DataGrid Name="AdminDG" SelectionMode="Single" IsReadOnly="True" CanUserSortColumns = "False" Visibility="Collapsed" Height="200"/>
+
+        </StackPanel>
+
+    </DockPanel>
+</Window>
